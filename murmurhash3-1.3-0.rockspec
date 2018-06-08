@@ -1,17 +1,17 @@
 -- This file was automatically generated for the LuaDist project.
 
 package = "murmurhash3"
-version = "1.2-0"
+version = "1.3-0"
 
 -- LuaDist source
 source = {
-  tag = "1.2-0",
+  tag = "1.3-0",
   url = "git://github.com/LuaDist-testing/murmurhash3.git"
 }
 -- Original source
 -- source = {
 -- 	url = "git://github.com/x25/murmurhash3-lua.git",
--- 	tag = "v1.2"
+-- 	tag = "v1.3"
 -- }
 
 description = {

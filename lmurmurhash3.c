@@ -2,8 +2,9 @@
 #include "lua.h"
 #include "lauxlib.h"
 
+
 #define LIBNAME		"murmurhash3"
-#define LIBVERSION	"1.0.0"
+#define LIBVERSION	"1.3.0"
 
 
 uint32_t murmur3_32(const char *key, uint32_t len, uint32_t seed) {
@@ -97,7 +98,12 @@ static const struct luaL_Reg R[] =
 
 LUALIB_API int luaopen_murmurhash3(lua_State *L)
 {
+#if !defined(LUA_VERSION_NUM) || LUA_VERSION_NUM < 502
 	luaL_register(L, LIBNAME, R);
+#else
+	lua_newtable(L);
+	luaL_setfuncs(L, R, 0);
+#endif
 	lua_pushliteral(L, "version");
 	lua_pushliteral(L, LIBVERSION);
 	lua_settable(L, -3);
